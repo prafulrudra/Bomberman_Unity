@@ -120,7 +120,7 @@ public class Player : MonoBehaviour {
     private void DropBombs ()
     {
         GameObject bomb = Instantiate (bombPrefab , new Vector3 ((Mathf.RoundToInt (transform.position.x) ) , .5f , (Mathf.RoundToInt (transform.position.z))) , transform.rotation);               // Instantiates a bomb prefab right below player position.
-        bomb.GetComponent<Bomb> ().Explode (explosionRadius , 2);        // Calls Bomb Script's Explode method, along with explosion
+        bomb.GetComponent<Bomb> ().Explode (explosionRadius , 5);        // Calls Bomb Script's Explode method, along with explosion
                                                                          // radius and time data for each bomb based on powerup.
     }
     #endregion

@@ -5,19 +5,21 @@ using UnityEngine;
 public class Explosion : MonoBehaviour {
 
     
-    #region PUBLIC_VATIABLE
-    public int explosionRadius;
+    #region PUBLIC_VATIABLES
+    public int explosionRadius; // Lets store explosion radius here so it can be called by other bombs to same radius.
     #endregion
+
     #region UNITY_MONOBEHAVIOUR_METHODS
     private void Start ()
     {
-        Invoke ("DestroyExplosion" , 1f);
+        Invoke ("DestroyExplosion" , 1f); // Destroy Explosion after one second so that it has sufficient time play particles sim. 
     }
     #endregion
+
     #region PRIVATE_METHODS
     private void DestroyExplosion ()
     {
-        Destroy (gameObject);
+        Destroy (gameObject); //Destorys current(this) GameObject
     }
     #endregion
     
