@@ -12,3 +12,4 @@ This is my first time on GitHub since me and my last company always used Visual 
 # Known Issues
 1.currently the characters dont have any animations
 2. The bombs stack on each other. They dont check if there was a previous bomb already.
+3. If player doesnt move immediatly after placing bomb they might get thrown.
