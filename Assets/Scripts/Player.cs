@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class Player : MonoBehaviour {
 
-    #region PRIVATE_VARIABLES
+    // Using region helps organize codes and also helps with code folding
 
-    private Rigidbody playerRigid;
+    #region PRIVATE_VARIABLES 
+
+    private Rigidbody playerRigid; // Reference to to player's rigidbody component.
 
     #endregion
 
@@ -14,7 +16,7 @@ public class Player : MonoBehaviour {
 
     public int playerNum;       // Player number to differntiate between two players.
     public float moveSpeed;   // Player movement Speed, so that we can change it based on Pickups.
-
+    public GameObject bombPrefab;
     #endregion
 
 
@@ -63,8 +65,9 @@ public class Player : MonoBehaviour {
 
                 playerRigid.rotation = Quaternion.Euler (0 , 90 , 0);    // Aligning player direction (rotation) 
                                                                         // along with move direction
-
             }
+            if (Input.GetKeyDown (KeyCode.Space))
+                DropBombs ();
         }
 
         if (playerNum == 2) // Player 2 Controls. Player 2 Will use arrow keys to move and numberpad enter button to Place Bomb
@@ -103,11 +106,19 @@ public class Player : MonoBehaviour {
 
                 playerRigid.rotation = Quaternion.Euler (0 , 90 , 0);    // Aligning player direction (rotation) 
                                                                          // along with move direction
-
             }
+            if (Input.GetKeyDown (KeyCode.KeypadEnter))
+               DropBombs ();
         }
 
     }
 
     #endregion
+    #region PRIVATE_METHODS
+    private void DropBombs ()
+    {
+        GameObject bomb = Instantiate (bombPrefab , new Vector3 ((Mathf.RoundToInt (transform.position.x) ) , .5f , (Mathf.RoundToInt (transform.position.z))) , transform.rotation);
+    }
+    #endregion
+
 }
