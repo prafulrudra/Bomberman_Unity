@@ -12,8 +12,12 @@ public class DestructibleWall : MonoBehaviour {
 
     private void OnTriggerEnter ( Collider other )
     {
-        GetComponent<MeshRenderer> ().enabled = false;
-        GetComponent<BoxCollider> ().enabled = false;
+        if (other.tag == "Explosion")
+        {
+            GetComponent<MeshRenderer> ().enabled = false;
+            GetComponent<BoxCollider> ().enabled = false;
+        }
+        
     }
 
     #endregion

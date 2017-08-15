@@ -19,6 +19,8 @@ public class Player : MonoBehaviour {
     public float moveSpeed;     // Player movement Speed, so that we can change it based on Pickups.
     public GameObject bombPrefab;// Reference to bomb prefab.
     public int bombTimer;       // Time after which bomb explodes. We will stick to int here.
+    public bool isDead;
+    public GameManager gameManager;
     #endregion
 
 
@@ -26,6 +28,7 @@ public class Player : MonoBehaviour {
 
     private void Start ()
     {
+        isDead = false;
         playerRigid = GetComponent<Rigidbody> (); // So that we can add velocity to player's rigid body 
                                                   // to move them from one place to another.
     }
@@ -113,15 +116,25 @@ public class Player : MonoBehaviour {
                DropBombs ();
         }
 
-    }
 
+    }
+    private void OnTriggerEnter ( Collider other )
+    {
+        if (other.tag == "Explosion")   // If the trigger hit the player is tagged "Explosion" then player is dead.
+        {
+            isDead = true;
+            gameManager.PlayerDied (this.playerNum);
+            Destroy (gameObject);
+        }
+    }
     #endregion
     #region PRIVATE_METHODS
     private void DropBombs ()
     {
         GameObject bomb = Instantiate (bombPrefab , new Vector3 ((Mathf.RoundToInt (transform.position.x) ) , .5f , (Mathf.RoundToInt (transform.position.z))) , transform.rotation);               // Instantiates a bomb prefab right below player position.
-        bomb.GetComponent<Bomb> ().Explode (explosionRadius , 5);        // Calls Bomb Script's Explode method, along with explosion
-                                                                         // radius and time data for each bomb based on powerup.
+
+        bomb.GetComponent<Bomb> ().Explode (explosionRadius , bombTimer);   // Calls Bomb Script's Explode method, along with explosion
+                                                                            // radius and time data for each bomb based on powerup.
     }
     #endregion
 

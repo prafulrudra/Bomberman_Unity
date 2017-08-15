@@ -12,7 +12,7 @@ public class Explosion : MonoBehaviour {
     #region UNITY_MONOBEHAVIOUR_METHODS
     private void Start ()
     {
-        Invoke ("DestroyExplosion" , 1f); // Destroy Explosion after one second so that it has sufficient time play particles sim. 
+        Invoke ("DestroyExplosion" , .3f); // Destroy Explosion after .3 seconds so that it has sufficient time play particles sim. 
     }
     #endregion
 
