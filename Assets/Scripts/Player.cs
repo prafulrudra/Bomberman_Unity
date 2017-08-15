@@ -67,6 +67,45 @@ public class Player : MonoBehaviour {
             }
         }
 
+        if (playerNum == 2) // Player 2 Controls. Player 2 Will use arrow keys to move and numberpad enter button to Place Bomb
+        {
+            if (Input.GetKey (KeyCode.UpArrow))       // Up Movement 
+            {
+                playerRigid.velocity = new Vector3 (0 , 0 , moveSpeed); // Adding 'moveSpeed' velocity 
+                                                                        // in the direction of Z (Forward) of Player
+
+                playerRigid.rotation = Quaternion.Euler (0 , 0 , 0);    // Aligning player direction (rotation) 
+                                                                        // along with move direction
+
+            }
+            if (Input.GetKey (KeyCode.LeftArrow))       // Left Movement 
+            {
+                playerRigid.velocity = new Vector3 (-moveSpeed , 0 , 0); // Adding 'moveSpeed' velocity 
+                                                                         // in the direction of Z (Forward) of Player
+
+                playerRigid.rotation = Quaternion.Euler (0 , 270 , 0);    // Aligning player direction (rotation) 
+                                                                          // along with move direction
+
+            }
+            if (Input.GetKey (KeyCode.DownArrow))       // Back Movement 
+            {
+                playerRigid.velocity = new Vector3 (0 , 0 , -moveSpeed); // Adding 'moveSpeed' velocity 
+                                                                         // in the direction of Z (Forward) of Player
+
+                playerRigid.rotation = Quaternion.Euler (0 , 180 , 0);    // Aligning player direction (rotation) 
+                                                                          // along with move direction
+
+            }
+            if (Input.GetKey (KeyCode.RightArrow))       // Right Movement 
+            {
+                playerRigid.velocity = new Vector3 (moveSpeed , 0 , 0); // Adding 'moveSpeed' velocity 
+                                                                        // in the direction of Z (Forward) of Player
+
+                playerRigid.rotation = Quaternion.Euler (0 , 90 , 0);    // Aligning player direction (rotation) 
+                                                                         // along with move direction
+
+            }
+        }
 
     }
 
