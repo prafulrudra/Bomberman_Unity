@@ -9,10 +9,12 @@ public class GameManager : MonoBehaviour
     #region PRIVATE_VARIABLES
     private int deadPlayers;
     private int deadPlayerNum;
+    private float timeLeft;
     #endregion
 
     #region PUBLIC_VATIABLE
     public Text winnerNameText;
+    public Text timerText;
     public Canvas gameOverMenu;
     #endregion
 
@@ -20,6 +22,18 @@ public class GameManager : MonoBehaviour
     private void Start ()
     {
         gameOverMenu.enabled = false;
+        timeLeft = 50;  // Total time will be 50 seconds
+
+    }
+    private void Update ()
+    {
+        
+        timeLeft -= Time.deltaTime;
+        timerText.text = "Time Left :" + timeLeft.ToString("F2");
+        if (timeLeft <= 0)  // If timer hits zero we call CheckDeaths (), which is equivalent to GameOver function
+        {
+            CheckDeaths ();
+        }
     }
     #endregion
 
@@ -43,7 +57,7 @@ public class GameManager : MonoBehaviour
     private void CheckDeaths ()
     {
         Time.timeScale = 0;             // Pauses the game setting timescale to 0 so no physics actions will happen after player death
-        gameOverMenu.enabled = true;    // Enable Game Over Menu Canvas when 
+        gameOverMenu.enabled = true;    // Enable Game Over Menu canvas 
         if (deadPlayers == 1)           // If there is only one dead player after .5 sec the first player deid then we declare surviving player as winner.
         {
             if (deadPlayerNum == 1)
@@ -52,8 +66,8 @@ public class GameManager : MonoBehaviour
             else if (deadPlayerNum == 2)
                 winnerNameText.text = "Player 1 Wins";
         }
-        else
-            winnerNameText.text = "Draw - Both players dead";
+        else                            // Since if both are dead or none are dead when time runs out we call Draw
+            winnerNameText.text = "Draw";
     }
     #endregion
 
