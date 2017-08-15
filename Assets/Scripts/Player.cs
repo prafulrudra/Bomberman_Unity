@@ -18,7 +18,6 @@ public class Player : MonoBehaviour {
 
     #region PUBLIC_VATIABLE
 
-    public int playerNum;       // Player number to differntiate between two players.
     public int playerNum;               // Player number to differntiate between two players.
     public float moveSpeed;             // Player movement Speed, so that we can change it based on Pickups.
     public GameObject bombPrefab;       // Reference to bomb prefab.
@@ -101,7 +100,6 @@ public class Player : MonoBehaviour {
     }
     private void OnTriggerEnter ( Collider other )
     {
-        if (other.tag == "Explosion")   // If the trigger hit the player is tagged "Explosion" then player is dead.
         if (other.tag == "Explosion" && !isDead)           // If the trigger hit the player is tagged "Explosion" then player is dead.
         {
             isDead = true;
