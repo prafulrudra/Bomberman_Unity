@@ -5,14 +5,15 @@ using UnityEngine;
 public class Bomb : MonoBehaviour {
 
     #region PRIVATE_VARIABLES
-    private bool hasExploded;
+    
     #endregion
 
     #region PUBLIC_VATIABLE
 
     public GameObject explosionPrefab;
     public LayerMask maskedLayer;
-    
+    public bool hasExploded = false;
+
     #endregion
 
     #region UNITY_MONOBEHAVIOUR_METHODS

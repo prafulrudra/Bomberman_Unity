@@ -2975,6 +2975,14 @@ Prefab:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 99587b18f93fbe44c944daf8385dbb4c, type: 2}
+    - target: {fileID: 9500000, guid: b235179bd2a63d1468dd430670338c55, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 60127ac04e6112c4085d37ce8fa6b944, type: 2}
+    - target: {fileID: 100168, guid: b235179bd2a63d1468dd430670338c55, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b235179bd2a63d1468dd430670338c55, type: 3}
   m_IsPrefabParent: 0
@@ -4751,6 +4759,10 @@ Prefab:
       propertyPath: m_Name
       value: Player 1
       objectReference: {fileID: 0}
+    - target: {fileID: 9500000, guid: b235179bd2a63d1468dd430670338c55, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 60127ac04e6112c4085d37ce8fa6b944, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b235179bd2a63d1468dd430670338c55, type: 3}
   m_IsPrefabParent: 0
@@ -4797,26 +4809,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9a76ab3e635ba946a8f9d373363f168, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosionRadius: 3
   playerNum: 1
   moveSpeed: 4
   bombPrefab: {fileID: 1886580766463608, guid: 0a7c0b596da25d14298edb08de4ff4d2, type: 2}
   bombTimer: 3
   isDead: 0
   gameManager: {fileID: 887647636}
---- !u!136 &1577339682
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1577339678}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  m_Radius: 0.45
-  m_Height: 1
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1578411469
 GameObject:
   m_ObjectHideFlags: 0
@@ -5726,7 +5724,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9a76ab3e635ba946a8f9d373363f168, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosionRadius: 3
   playerNum: 2
   moveSpeed: 4
   bombPrefab: {fileID: 1886580766463608, guid: 0a7c0b596da25d14298edb08de4ff4d2, type: 2}
@@ -5761,19 +5758,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 84
   m_CollisionDetection: 0
---- !u!136 &1814157493
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1814157489}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  m_Radius: 0.45
-  m_Height: 1
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1861968657
 GameObject:
   m_ObjectHideFlags: 0

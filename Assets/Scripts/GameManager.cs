@@ -27,6 +27,7 @@ public class GameManager : MonoBehaviour
     #region PUBLIC_METHODS
     public void PlayerDied ( int playerNum )
     {
+        Debug.Log (playerNum);
         deadPlayers++;
         deadPlayerNum = playerNum;
         Invoke ("CheckDeaths" , .5f); // Check if both players are dead within .5 seconds of each other
